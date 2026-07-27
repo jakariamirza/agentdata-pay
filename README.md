@@ -6,7 +6,7 @@ A user asks a Whitefield property question. The agent selects the smallest usefu
 
 **Live demo:** [https://agentdata-pay.vercel.app](https://agentdata-pay.vercel.app)
 
-**Demo video:** [AgentData Pay — 3-minute demo](submission/AgentData-Pay-Demo.mp4)
+**Demo video:** [AgentData Pay — 3-minute demo](https://youtu.be/hepbZCKqjck)
 
 **Presentation:** [Final submission deck](submission/AgentData-Pay-Final-Submission.pptx)
 
