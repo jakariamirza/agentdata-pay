@@ -49,6 +49,9 @@ test("demo payment unlocks protected intelligence", async () => {
   const body = await response.json();
   assert.equal(body.payment.verified, true);
   assert.ok(body.data.listings.length > 0);
+  assert.equal(body.data.currency, "USD");
+  assert.equal(typeof body.data.listings[0].priceUsd, "number");
+  assert.equal("priceInr" in body.data.listings[0], false);
 });
 
 test("agent autonomously handles 402 and returns analysed data", async () => {
@@ -65,4 +68,5 @@ test("agent autonomously handles 402 and returns analysed data", async () => {
   assert.equal(body.payment.requestedStatus, 402);
   assert.equal(body.payment.verified, true);
   assert.equal(body.steps.length, 5);
+  assert.equal(body.result.currency, "USD");
 });

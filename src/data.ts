@@ -5,8 +5,8 @@ export type Listing = {
   propertyType: "Apartment" | "Villa";
   bedrooms: number;
   areaSqFt: number;
-  priceInr: number;
-  previousPriceInr?: number;
+  priceUsd: number;
+  previousPriceUsd?: number;
   listedAt: string;
   pricePerSqFt: number;
   signal: "new" | "reduced" | "value" | "standard";
@@ -20,9 +20,9 @@ export const listings: Listing[] = [
     propertyType: "Apartment",
     bedrooms: 2,
     areaSqFt: 1240,
-    priceInr: 15_500_000,
+    priceUsd: 186_747,
     listedAt: "2026-07-25",
-    pricePerSqFt: 12_500,
+    pricePerSqFt: 151,
     signal: "new",
   },
   {
@@ -32,10 +32,10 @@ export const listings: Listing[] = [
     propertyType: "Apartment",
     bedrooms: 3,
     areaSqFt: 1650,
-    priceInr: 20_600_000,
-    previousPriceInr: 22_000_000,
+    priceUsd: 248_193,
+    previousPriceUsd: 265_060,
     listedAt: "2026-07-08",
-    pricePerSqFt: 12_485,
+    pricePerSqFt: 150,
     signal: "reduced",
   },
   {
@@ -45,10 +45,10 @@ export const listings: Listing[] = [
     propertyType: "Apartment",
     bedrooms: 2,
     areaSqFt: 1210,
-    priceInr: 13_700_000,
-    previousPriceInr: 14_800_000,
+    priceUsd: 165_060,
+    previousPriceUsd: 178_313,
     listedAt: "2026-07-11",
-    pricePerSqFt: 11_322,
+    pricePerSqFt: 136,
     signal: "value",
   },
   {
@@ -58,9 +58,9 @@ export const listings: Listing[] = [
     propertyType: "Apartment",
     bedrooms: 3,
     areaSqFt: 2750,
-    priceInr: 46_500_000,
+    priceUsd: 560_241,
     listedAt: "2026-07-23",
-    pricePerSqFt: 16_909,
+    pricePerSqFt: 204,
     signal: "new",
   },
   {
@@ -70,10 +70,10 @@ export const listings: Listing[] = [
     propertyType: "Apartment",
     bedrooms: 3,
     areaSqFt: 1620,
-    priceInr: 18_200_000,
-    previousPriceInr: 19_000_000,
+    priceUsd: 219_277,
+    previousPriceUsd: 228_916,
     listedAt: "2026-07-15",
-    pricePerSqFt: 11_235,
+    pricePerSqFt: 135,
     signal: "reduced",
   },
   {
@@ -83,16 +83,17 @@ export const listings: Listing[] = [
     propertyType: "Villa",
     bedrooms: 4,
     areaSqFt: 3500,
-    priceInr: 65_000_000,
+    priceUsd: 783_133,
     listedAt: "2026-06-30",
-    pricePerSqFt: 18_571,
+    pricePerSqFt: 224,
     signal: "standard",
   },
 ];
 
 export const marketContext = {
   locality: "Whitefield, Bengaluru",
-  currency: "INR",
+  currency: "USD",
+  pricingNote: "Curated demonstration prices expressed in USD.",
   generatedAt: "2026-07-27T06:30:00.000Z",
   source: "Curated hackathon demonstration dataset",
   disclaimer:

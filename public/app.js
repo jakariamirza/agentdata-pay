@@ -10,13 +10,13 @@ const receiptAmount = document.querySelector("#receipt-amount");
 const receiptMode = document.querySelector("#receipt-mode");
 const modePill = document.querySelector("#mode-pill");
 
-const money = new Intl.NumberFormat("en-IN", {
+const money = new Intl.NumberFormat("en-US", {
   style: "currency",
-  currency: "INR",
+  currency: "USD",
   maximumFractionDigits: 0,
 });
 
-const number = new Intl.NumberFormat("en-IN");
+const number = new Intl.NumberFormat("en-US");
 
 async function loadHealth() {
   const response = await fetch("/api/health");
@@ -29,14 +29,14 @@ function renderData(result) {
   if (Array.isArray(result.listings)) {
     dataView.innerHTML = `
       <table>
-        <thead><tr><th>Property</th><th>Type</th><th>Area</th><th>Price</th><th>₹ / sq ft</th></tr></thead>
+        <thead><tr><th>Property</th><th>Type</th><th>Area</th><th>Price (USD)</th><th>$ / sq ft</th></tr></thead>
         <tbody>
           ${result.listings.map((item) => `
             <tr>
               <td><strong>${item.project}</strong><br><span>${item.locality}</span></td>
               <td>${item.bedrooms} BR ${item.propertyType}</td>
               <td>${number.format(item.areaSqFt)} sq ft</td>
-              <td>${money.format(item.priceInr)}</td>
+              <td>${money.format(item.priceUsd)}</td>
               <td>${money.format(item.pricePerSqFt)}</td>
             </tr>`).join("")}
         </tbody>
@@ -46,8 +46,8 @@ function renderData(result) {
 
   const metrics = [
     ["Sample listings", result.listingCount],
-    ["Median ₹ / sq ft", money.format(result.medianPricePerSqFt)],
-    ["Average price", money.format(result.averagePriceInr)],
+    ["Median $ / sq ft", money.format(result.medianPricePerSqFt)],
+    ["Average price (USD)", money.format(result.averagePriceUsd)],
     ["Potential opportunities", result.opportunityCount],
   ];
   dataView.innerHTML = `<div class="metric-grid">${metrics

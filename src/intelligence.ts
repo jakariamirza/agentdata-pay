@@ -51,11 +51,11 @@ function median(values: number[]): number {
 }
 
 function reductionPercent(listing: Listing): number {
-  if (!listing.previousPriceInr) return 0;
+  if (!listing.previousPriceUsd) return 0;
   return Number(
     (
-      ((listing.previousPriceInr - listing.priceInr) /
-        listing.previousPriceInr) *
+      ((listing.previousPriceUsd - listing.priceUsd) /
+        listing.previousPriceUsd) *
       100
     ).toFixed(1),
   );
@@ -75,7 +75,7 @@ export function getResource(resource: Resource) {
 
   if (resource === "price-reductions") {
     const reduced = listings
-      .filter((item) => item.previousPriceInr)
+      .filter((item) => item.previousPriceUsd)
       .map((item) => ({ ...item, reductionPercent: reductionPercent(item) }))
       .sort((a, b) => b.reductionPercent - a.reductionPercent);
     return { ...marketContext, resource, count: reduced.length, listings: reduced };
@@ -109,11 +109,11 @@ export function getResource(resource: Resource) {
     resource,
     listingCount: listings.length,
     medianPricePerSqFt,
-    averagePriceInr: Math.round(
-      listings.reduce((sum, item) => sum + item.priceInr, 0) / listings.length,
+    averagePriceUsd: Math.round(
+      listings.reduce((sum, item) => sum + item.priceUsd, 0) / listings.length,
     ),
     newListingCount: listings.filter((item) => item.signal === "new").length,
-    reducedListingCount: listings.filter((item) => item.previousPriceInr).length,
+    reducedListingCount: listings.filter((item) => item.previousPriceUsd).length,
     opportunityCount: listings.filter(
       (item) => item.pricePerSqFt < medianPricePerSqFt,
     ).length,
@@ -128,7 +128,7 @@ export function buildInsights(resource: Resource, payload: ReturnType<typeof get
     "opportunityCount" in payload
   ) {
     return [
-      `The sample median is ₹${payload.medianPricePerSqFt.toLocaleString("en-IN")} per sq ft.`,
+      `The sample median is $${payload.medianPricePerSqFt.toLocaleString("en-US")} per sq ft.`,
       `${payload.reducedListingCount} listings show a recent price reduction.`,
       `${payload.opportunityCount} listings are below the sample median price per sq ft.`,
     ];
