@@ -4,6 +4,8 @@ AgentData Pay is an autonomous data-purchasing agent built for the **Agentic Eco
 
 A user asks a Whitefield property question. The agent selects the smallest useful paid dataset, calls an x402-protected API, receives `402 Payment Required`, pays in USDC through Circle Gateway Nanopayments, and analyses the protected response.
 
+**Live demo:** [https://agentdata-pay.vercel.app](https://agentdata-pay.vercel.app)
+
 ## Working MVP
 
 The repository contains:
