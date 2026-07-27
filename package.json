@@ -9,7 +9,10 @@
     "start": "tsx src/server.ts",
     "start:prod": "node dist/src/server.js",
     "build": "tsc -p tsconfig.json",
-    "test": "node --import tsx --test tests/*.test.ts"
+    "test": "node --import tsx --test tests/*.test.ts",
+    "wallet:create": "tsx scripts/create-test-wallet.ts",
+    "gateway:status": "tsx scripts/gateway-wallet.ts status",
+    "gateway:deposit": "tsx scripts/gateway-wallet.ts deposit"
   },
   "engines": {
     "node": ">=22"

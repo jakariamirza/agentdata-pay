@@ -74,9 +74,21 @@ PAYMENT_MODE=live
 SELLER_ADDRESS=0xYOUR_SELLER_EOA
 PRIVATE_KEY=0xYOUR_BUYER_EOA_PRIVATE_KEY
 FACILITATOR_URL=https://gateway-api-testnet.circle.com
+ARC_RPC_URL=https://rpc.quicknode.testnet.arc.network
 ```
 
 5. Restart the app and run a query.
+
+For an isolated testnet setup, the project can create both wallets locally
+without printing either private key:
+
+```bash
+npm run wallet:create
+npm run gateway:status
+npm run gateway:deposit -- 1
+```
+
+The generated credentials are stored only in the git-ignored `.env` file.
 
 In live mode:
 

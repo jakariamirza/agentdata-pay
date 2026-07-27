@@ -1,13 +1,13 @@
 import assert from "node:assert/strict";
 import { after, before, test } from "node:test";
 import type { Server } from "node:http";
-import { createApp } from "../src/app.js";
 
 let server: Server;
 let origin: string;
 
 before(async () => {
   process.env.PAYMENT_MODE = "demo";
+  const { createApp } = await import("../src/app.js");
   const app = createApp();
   await new Promise<void>((resolve) => {
     server = app.listen(0, "127.0.0.1", () => resolve());

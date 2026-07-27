@@ -17,6 +17,9 @@ export const config = {
   facilitatorUrl:
     process.env.FACILITATOR_URL ??
     "https://gateway-api-testnet.circle.com",
+  arcRpcUrl:
+    process.env.ARC_RPC_URL ??
+    "https://rpc.quicknode.testnet.arc.network",
   price: "$0.001",
   priceAtomic: "1000",
   demoPaymentSignature: "agentdata-demo-payment",

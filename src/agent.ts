@@ -39,6 +39,7 @@ async function payLive(url: string) {
   const client = new GatewayClient({
     chain: "arcTestnet",
     privateKey: config.privateKey as `0x${string}`,
+    rpcUrl: config.arcRpcUrl,
   });
   const result = await client.pay(url);
   if (result.status !== 200) {
