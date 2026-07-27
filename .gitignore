@@ -222,5 +222,6 @@ __marimo__/
 
 # Presentation build artifacts
 submission/.deck-build/
+submission/.video-build/
 submission/AgentData-Pay-Final-Submission/
 submission/*.pptx.inspect.ndjson

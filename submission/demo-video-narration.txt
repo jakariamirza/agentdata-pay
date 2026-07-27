@@ -1,0 +1,30 @@
+AgentData Pay — three-minute demo narration
+
+Slide 1 — Introduction
+
+AgentData Pay is an autonomous data-purchasing agent built for the Agentic Economy track. A user asks a market question, and the agent decides what information it needs, purchases access with test USDC on Arc Testnet, then returns the useful signal. The current demonstration focuses on property intelligence in Whitefield, Bengaluru.
+
+Slide 2 — The autonomous data purchase
+
+Most agents can reason, but they still depend on a human to buy protected information. AgentData Pay closes that gap in three actions. First, it chooses the smallest useful dataset for the question. Second, an HTTP 402 response triggers a tiny test-USDC authorization. Third, verified payment unlocks protected JSON, which the agent analyses immediately.
+
+Slide 3 — The x402 loop
+
+The user never selects an endpoint or handles a wallet prompt. The agent classifies the question and routes it to a market summary, new listings, price reductions, or potential opportunities. The selected API responds with HTTP 402 and its payment requirements. The buyer signs the authorization, Circle Gateway verifies and settles it on Arc Testnet, and the agent retries the request. The protected result is then ranked and explained in the same user interaction.
+
+Slide 4 — Live production proof
+
+This is the deployed production application, not a simulated interface. I asked for underpriced property opportunities in Whitefield. The agent selected the opportunities dataset, received HTTP 402, and signed a test-USDC authorization. Circle Gateway verified the settlement, and three protected property signals were unlocked. The receipt shows an amount of zero point zero zero one USDC, the Arc Testnet network, the x402 protocol, and Gateway-verified settlement. Demo mode is also available locally, but this screen shows the live payment path.
+
+Slide 5 — Working evidence
+
+The MVP is deliberately small and testable. Each protected request costs zero point zero zero one test USDC, demonstrating a true nanopayment rather than a traditional checkout. HTTP 402 negotiation is handled automatically by the agent, and all four end-to-end tests pass. The public application and repository are ready for judges to inspect.
+
+Slide 6 — Technical stack
+
+The network is Arc Testnet. Money moves as test USDC through Circle Gateway Nanopayments. The paid API uses the x402 protocol. The agent and API are written in TypeScript with Express, and the production application is deployed on Vercel. Each component has one clear job: decide, request, pay, verify, or analyse.
+
+Slide 7 — Close
+
+AgentData Pay demonstrates one question, one autonomous purchase, and one verified answer. Try the live agent at agentdata-pay dot vercel dot app, and inspect the public code on GitHub under jakariamirza slash agentdata-pay.
+
