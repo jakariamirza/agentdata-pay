@@ -219,3 +219,8 @@ __marimo__/
 .streamlit/secrets.toml
 .vercel
 .env*
+
+# Presentation build artifacts
+submission/.deck-build/
+submission/AgentData-Pay-Final-Submission/
+submission/*.pptx.inspect.ndjson
