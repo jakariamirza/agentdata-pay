@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AgentData Pay autonomously buys Whitefield real-estate intelligence with USDC on Arc."
+    />
+    <title>AgentData Pay · Autonomous market intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <nav>
+        <a class="brand" href="/" aria-label="AgentData Pay home">
+          <span class="brand-mark">A</span>
+          <span>AgentData <strong>Pay</strong></span>
+        </a>
+        <div class="nav-meta">
+          <span class="network-dot"></span>
+          <span>Arc Testnet</span>
+          <span class="mode-pill" id="mode-pill">Loading…</span>
+        </div>
+      </nav>
+
+      <main>
+        <section class="hero">
+          <div class="eyebrow">AUTONOMOUS DATA COMMERCE</div>
+          <h1>Market intelligence,<br /><em>bought by an agent.</em></h1>
+          <p class="hero-copy">
+            Ask a Whitefield property question. The agent chooses a paid
+            dataset, negotiates an x402 request, pays in USDC, and returns the
+            signal.
+          </p>
+
+          <form id="agent-form" class="query-card">
+            <label for="query">What would you like to know?</label>
+            <div class="query-row">
+              <input
+                id="query"
+                name="query"
+                autocomplete="off"
+                value="Show me underpriced property opportunities in Whitefield"
+              />
+              <button type="submit" id="run-button">
+                <span>Run agent</span><span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div class="suggestions">
+              <button type="button" data-query="Give me a Whitefield market summary">
+                Market summary
+              </button>
+              <button type="button" data-query="Show the newest Whitefield listings">
+                New listings
+              </button>
+              <button type="button" data-query="Find recent price reductions">
+                Price reductions
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="result-layout" id="result-layout" hidden>
+          <article class="result-card">
+            <div class="card-heading">
+              <div>
+                <span class="section-label">UNLOCKED INTELLIGENCE</span>
+                <h2 id="result-title">Market result</h2>
+              </div>
+              <span class="verified-badge">✓ Payment verified</span>
+            </div>
+            <div id="insights" class="insights"></div>
+            <div id="data-view" class="data-view"></div>
+          </article>
+
+          <aside class="activity-card">
+            <span class="section-label">AGENT ACTIVITY</span>
+            <div id="steps" class="steps"></div>
+            <div class="receipt">
+              <div><span>Amount</span><strong id="receipt-amount">—</strong></div>
+              <div><span>Network</span><strong>Arc Testnet</strong></div>
+              <div><span>Protocol</span><strong>x402</strong></div>
+              <div><span>Settlement</span><strong id="receipt-mode">—</strong></div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="how-it-works">
+          <div>
+            <span class="section-label">THE PAYMENT LOOP</span>
+            <h2>One question. One autonomous purchase.</h2>
+          </div>
+          <ol>
+            <li><span>01</span><p>Agent selects the smallest useful dataset.</p></li>
+            <li><span>02</span><p>API responds with HTTP 402 and a USDC price.</p></li>
+            <li><span>03</span><p>Circle Gateway processes the authorization.</p></li>
+            <li><span>04</span><p>Protected intelligence is returned and analysed.</p></li>
+          </ol>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
